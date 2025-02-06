@@ -67,9 +67,12 @@ const CreatePost: React.FC<CreatePostProps> = ({
         console.log(postData);
         await createPost(postData);
         form.resetFields();
+        form.setFieldsValue({
+          createDate: new Date(Date.now()).toISOString().split("T")[0],
+        });
         setContent("");
       }
-      window.location.reload();
+      // window.location.reload();
       refreshPosts();
       onClose();
     } catch (error) {
