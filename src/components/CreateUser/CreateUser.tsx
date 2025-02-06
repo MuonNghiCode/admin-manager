@@ -43,11 +43,14 @@ const CreateUser: React.FC<CreateUserProps> = ({
       } else {
         let userData = {
           ...values,
-          updateDate: new Date(Date.now()),
+          updateDate: new Date(Date.now()), // Ensure updateDate is not set for new users
         };
         await addUser(userData);
         message.success("User created successfully!");
         form.resetFields();
+        form.setFieldsValue({
+          createDate: new Date().toISOString().split("T")[0],
+        });
       }
       refreshUsers();
       onClose();
@@ -87,11 +90,6 @@ const CreateUser: React.FC<CreateUserProps> = ({
       >
         <Input type="date" readOnly />
       </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          {isUpdateMode ? "Update" : "Create"}
-        </Button>
-      </Form.Item>
       {isUpdateMode && (
         <Form.Item
           name="updateDate"
@@ -101,6 +99,11 @@ const CreateUser: React.FC<CreateUserProps> = ({
           <Input type="date" readOnly />
         </Form.Item>
       )}
+      <Form.Item>
+        <Button type="primary" htmlType="submit">
+          {isUpdateMode ? "Update" : "Create"}
+        </Button>
+      </Form.Item>
     </Form>
   );
 };
