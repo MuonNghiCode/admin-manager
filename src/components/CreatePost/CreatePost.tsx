@@ -69,6 +69,7 @@ const CreatePost: React.FC<CreatePostProps> = ({
         form.resetFields();
         setContent("");
       }
+      window.location.reload();
       refreshPosts();
       onClose();
     } catch (error) {
