@@ -5,9 +5,8 @@ import { deleteUser, getUsers } from "../../service/userApi";
 import CreateUser from "../../components/CreateUser/CreateUser";
 import ModalViewUser from "../../components/ModalViewUser/ModalViewUser";
 import DeleteUser from "../../components/DeleteUser/DeleteUSer";
-import { Plus, Eye, Trash2, Recycle } from "lucide-react";
+import { Plus, Eye, Trash2, FilePenLine } from "lucide-react";
 import "./UserPage.scss";
-
 const UserPage: React.FC = () => {
   const [userList, setUserList] = useState<User[]>([]);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
@@ -82,11 +81,11 @@ const UserPage: React.FC = () => {
   };
 
   const columns = [
-    {
-      title: "Id",
-      dataIndex: "userId",
-      key: "userId",
-    },
+    // {
+    //   title: "Id",
+    //   dataIndex: "userId",
+    //   key: "userId",
+    // },
     {
       title: "Name",
       dataIndex: "name",
@@ -118,7 +117,7 @@ const UserPage: React.FC = () => {
             <Eye />
           </Button>
           <Button type="primary" onClick={() => handleUpdateUser(record)}>
-            <Recycle />
+            <FilePenLine />
           </Button>
           <Button
             type="primary"

@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "antd";
-import { Post } from "../models/Post";
+import { Post } from "../../models/Post";
 
 interface DeletePostProps {
   post?: Post | null;

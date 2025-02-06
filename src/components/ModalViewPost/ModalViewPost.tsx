@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Button } from "antd";
-import { Post } from "../models/Post";
+import { Post } from "../../models/Post";
 
 interface ModalViewPostProps {
   post: Post | null;

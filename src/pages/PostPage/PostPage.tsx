@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import DeletePost from "../../components/DeletePost";
-import CreatePost from "../../components/CreatePost";
+import DeletePost from "../../components/DeletePost/DeletePost";
+import CreatePost from "../../components/CreatePost/CreatePost";
 import { Button, Modal, Table } from "antd";
-import ModalViewPost from "../../components/ModalViewPost";
+import ModalViewPost from "../../components/ModalViewPost/ModalViewPost";
 import { Post } from "../../models/Post";
 import { deletePost, getPostsByUserId } from "../../service/postApi";
-import { Plus, Eye, Trash2, Recycle } from "lucide-react";
+import { Plus, Eye, Trash2, FilePenLine } from "lucide-react";
 import "./PostPage.scss";
 
 const PostPage: React.FC = () => {
@@ -87,11 +87,11 @@ const PostPage: React.FC = () => {
   };
 
   const columns = [
-    {
-      title: "Id",
-      dataIndex: "id",
-      key: "id",
-    },
+    // {
+    //   title: "id",
+    //   dataIndex: "id",
+    //   key: "id",
+    // },
     {
       title: "Title",
       dataIndex: "title",
@@ -120,7 +120,11 @@ const PostPage: React.FC = () => {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      render: (status: boolean) => (status ? "Active" : "Inactive"),
+      render: (status: boolean) => (
+        <span style={{ color: status ? "green" : "red" }}>
+          {status ? "Active" : "Inactive"}
+        </span>
+      ),
     },
     {
       title: "Create Date",
@@ -143,7 +147,7 @@ const PostPage: React.FC = () => {
             <Eye />
           </Button>
           <Button type="primary" onClick={() => handleUpdatePost(record)}>
-            <Recycle />
+            <FilePenLine />
           </Button>
           <Button
             type="primary"

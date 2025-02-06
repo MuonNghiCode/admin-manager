@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Form, Input, Button, Select } from "antd";
-import { Post } from "../models/Post";
-import { createPost, updatePost } from "../service/postApi";
+import { Post } from "../../models/Post";
+import { createPost, updatePost } from "../../service/postApi";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
